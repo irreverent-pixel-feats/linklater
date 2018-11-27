@@ -1,0 +1,54 @@
+name:               linklater
+version:            4.0.0.2
+license:            BSD3
+author:             Hao Lian <hi@haolian.org>
+maintainer:         Hao Lian <hi@haolian.org>
+synopsis:           A Haskell library for the Slack API
+category:           Network
+description:        <https://github.com/hlian/linklater/blob/master/README.md ~please see our lovely README.md~>
+homepage:           https://github.com/hlian/linklater
+bug-reports:        https://github.com/hlian/linklater/issues
+cabal-version:      >= 1.18
+build-type:         Simple
+
+source-repository       head
+    type:               git
+    location:           https://github.com/hlian/linklater.git
+
+flag                    small_base
+    description:        Choose the new, split-up base package.
+
+library
+    default-language:   Haskell2010
+
+    build-depends:      array
+                      , aeson                   == 1.4.*
+                      , base < 5 && >= 4
+                      , base-prelude            == 1.3.*
+                      , bytestring              == 0.10.*
+                      , containers
+                      , exceptions              == 0.8.*
+                      , HTTP                    == 4000.3.*
+                      , http-types              == 0.12.*
+                      , lens                    == 4.16.*
+                      , lens-aeson              == 1.0.*
+                      , mtl                     == 2.2.*
+                      , safe-exceptions         == 0.1.*
+                      , text                    == 1.2.*
+                      , uri-bytestring          == 0.3.*
+                      , wai                     == 3.2.*
+                      , wreq                    == 0.5.*
+
+    ghc-options:        -Wall
+
+    hs-source-dirs:     lib
+
+    exposed-modules:    Network.Linklater
+                        Network.Linklater.Batteries
+                        Network.Linklater.Types
+
+    default-extensions: FlexibleContexts
+                        LambdaCase
+                        OverloadedLists
+                        OverloadedStrings
+                        ScopedTypeVariables
